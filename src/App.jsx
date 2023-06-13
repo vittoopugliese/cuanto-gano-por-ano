@@ -10,23 +10,26 @@ function App() {
 
     platita = plata / time
 
-    return platita
+    if(time == 'a') return plata * 12
+
+    return platita ? platita : 0
   }
 
   return (
     <div className="container">
-      <input type="number" placeholder="Tu sueldo ANUAL" onChange={(e) => setPlata(e.target.value)} />
-      <p>queres saber cuanto ganas por:</p>
+      <input type="number" placeholder="Tu sueldo MENSUAL" onChange={(e) => setPlata(e.target.value)} />
       <select value={time} onChange={(e) => setTime(e.target.value)}>
-        <option value="1">Ano</option>
-        <option value="12">Mes</option>
-        <option value="365">Dia</option>
-        <option value="8760">Hora</option>
-        <option value="525600">Minuto</option>
-        <option value="31536000">Segundo</option>
-        <option value="31536000000">(extremo) MILI-Segundo</option>
+        <option value="-">queres saber cuanto ganas por:</option>
+        <option value="a">Ano</option>
+        <option value="1">Mes</option>
+        <option value="30">Dia</option>
+        <option value="730">Hora</option>
+        <option value="43800">Minuto</option>
+        <option value="2628000">Segundo</option>
+        <option value="2628000000">(extremo) MILI-Segundo</option>
       </select>
-      <h1>{getPlata()}</h1>
+      <h1>= {getPlata()}</h1>
+      <h1>{getPlata() * 480} crocantes</h1>
     </div>
   );
 }
